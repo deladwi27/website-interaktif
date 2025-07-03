@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Interaktif</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: white;
+    }
+    button {
+      padding: 8px 15px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    input {
+      padding: 8px;
+      margin-top: 10px;
+    }
+    #outputNama {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Website Interaktif dengan JavaScript</h1>
+  <p>Klik tombol di bawah ini untuk mengganti warna latar:</p>
+  <button id="gantiWarna">Ganti Warna Latar</button>
+  
+  <p>Masukkan nama kamu:</p>
+  <input type="text" id="namaInput" placeholder="Ketik nama..." />
+  <button id="tampilkanNama">Tampilkan Nama</button>
+  
+  <p id="outputNama"></p>
+
+  <script>
+    // DOM Event: tombol ganti warna
+    document.getElementById("gantiWarna").addEventListener("click", function () {
+      document.body.style.backgroundColor = getWarnaAcak();
+    });
+
+    // DOM Event: tombol tampilkan nama
+    document.getElementById("tampilkanNama").addEventListener("click", function () {
+      const nama = document.getElementById("namaInput").value;
+      const output = document.getElementById("outputNama");
+      output.textContent = "Halo, " + nama + "!";
+    });
+
+    // Fungsi untuk mendapatkan warna acak
+    function getWarnaAcak() {
+      const warna = ["lightblue", "lightgreen", "lavender", "salmon", "khaki"];
+      return warna[Math.floor(Math.random() * warna.length)];
+    }
+  </script>
+</body>
+</html>
